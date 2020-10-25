@@ -1,12 +1,13 @@
 const express = require('express')
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
+const courses = require('./data')
 
 const app = express()
 app.set('view engine','ejs')
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use("/public", express.static(__dirname + '/public'));
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'))
 
 const PORT = process.env.PORT || 3000
 
@@ -17,11 +18,12 @@ app.get('/home',(req,res)=>{
 })
 
 app.get('/courses',(req,res)=>{
-    res.render('courses');
+    res.render('courses',{courses:courses});
 })
 
 app.get('/course/:id',(req,res)=>{
-    res.render('home');
+    const course = courses.filter((c) => {return c._id === req.params.id})
+    res.render('course-single',{course:course[0]});
 })
 
 app.get('/services',(req,res)=>{

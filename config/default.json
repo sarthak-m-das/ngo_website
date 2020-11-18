@@ -1,0 +1,5 @@
+{
+    "mongoURI": "mongodb+srv://bitsofpaper:bitsofpaper@cluster0.ztpn8.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "jwtexpiry": 360000
+}

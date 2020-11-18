@@ -1,0 +1,53 @@
+<%- include('template/header1') %>
+
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate pb-5 text-center">
+          <h2 class="mb-3 bread">Dashboard</h2>
+          <p class="breadcrumbs"><span class="mr-2"><a href="dashboard">Dashboard <i class="ion-ios-arrow-forward"></i></a></span> <span>Dashboard <i class="ion-ios-arrow-forward"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+     <section class="ftco-section">
+        
+        <div class="container">
+            <div class="col-lg-12 ftco-animate">
+            <h3 class="heading-1"><b>Your Courses</b></h3>
+                <% courses.forEach((course,index)=>{ %>
+                        <div class="blog-entry align-self-stretch d-md-flex">
+                            <iframe 
+                            class="block-20"
+                            src=<%= course['videos'][0]['url'] %>
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                            </iframe>
+                            <div class="text d-block pl-md-4">
+                                <div class="meta mb-3">
+                                <div>Course Length - <%= course['videos'].length %> Videos</div>
+                            </div>
+                            <h3 class="heading"><a href="course/<%= course['_id'] %> "><%= course['courseTitle'] %></a></h3>
+                            <p><%= course['description'] %></p>
+                            <p><a href="course/<%= course['_id'] %> " class="btn btn-primary py-2 px-3">View the full Course</a></p>
+                            <p><a href="edit/<%= course['_id'] %> " class="btn btn-primary py-2 px-3">Edit Course</a></p>
+                            </div>
+                        </div>
+                <% }) %>
+
+                <div class="column-lg-12" style="margin-top: 10%;">
+                    <p>
+                        <a href="/build" class="btn btn-primary py-3 px-3">
+                            Build New Course
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </section> <!-- .section -->
+
+<%- include('template/footer') %>

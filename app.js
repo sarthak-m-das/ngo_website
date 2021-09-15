@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'))
 const Course = require("./models/courses");
 const Video = require("./models/videos");
-connectDB();
+// connectDB();
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3033
 
 app.get('/',(req,res)=> res.redirect('/home'))
 
@@ -34,8 +34,8 @@ app.get('/course/:id',async(req,res)=>{
     res.render('course-single',{course:course});
 })
 
-app.get('/services',(req,res)=>{
-    res.render('services');
+app.get('/mission_vision',(req,res)=>{
+    res.render('mission_vision');
 })
 
 app.get('/about',(req,res)=>{
@@ -46,8 +46,8 @@ app.get('/contact',(req,res)=>{
     res.render('contact');
 })
 
-app.get('/causes',(req,res)=>{
-    res.render('causes');
+app.get('/objective',(req,res)=>{
+    res.render('objective');
 })
 
 app.get('/admin',(req,res)=>{

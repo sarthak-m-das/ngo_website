@@ -6,7 +6,7 @@ const connectDB = async () => {
   try {
 
     await mongoose.connect(
-      "mongodb+srv://bitsofpaper:bitsofpaper@cluster0.ztpn8.mongodb.net/NGO?retryWrites=true&w=majority",
+      "mongodb://127.0.0.1:27017/",
     {
       useNewUrlParser: true,
       useCreateIndex: true,

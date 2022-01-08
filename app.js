@@ -15,7 +15,7 @@ const Course = require("./models/courses");
 const Video = require("./models/videos");
 // connectDB();
 
-const PORT = 80
+const PORT = 81
 
 app.get('/',(req,res)=> res.redirect('/home'))
 
